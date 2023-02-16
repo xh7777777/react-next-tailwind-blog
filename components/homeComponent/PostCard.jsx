@@ -3,8 +3,8 @@ import Image from 'next/image'
 import tu from '../../public/images/temp-article-cover.jpg'
 import Link from 'next/link'
 function PostCard({post}) {
+  console.log(post)
   return (
-
       <div className="max-w-md card md:max-w-3xl">
             <Link href={`/post/${post.art_id}`}>
             <div className="md:flex">

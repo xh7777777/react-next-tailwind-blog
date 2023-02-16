@@ -3,14 +3,15 @@ import Link from 'next/link'
 import {AiFillHome} from "react-icons/ai"
 import {RiArticleFill} from 'react-icons/ri'
 import {TbTimeline} from 'react-icons/tb'
-import {GiTalk} from 'react-icons/gi'
 import {BiUserPin} from 'react-icons/bi'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {BsMoonStarsFill,BsCloudSunFill} from 'react-icons/bs'
+import {RiSearchFill} from 'react-icons/ri'
 import { useRouter } from 'next/router'
 import { themeContext } from '../Provider/ContextProvider'
 import { setThemeContext } from '../Provider/ContextProvider'
 import { throttle } from '@/utils'
+import { Modal } from 'antd'
 const navItem = [
     {
         key:'home',
@@ -31,17 +32,17 @@ const navItem = [
         icon: <TbTimeline />
     },
     {
-        key:'talk',
-        value:'说说',
-        to:'/talk',
-        icon: <GiTalk />
-    },
-    {
         key:'about',
         value:'关于',
         to:'/about',
         icon: <BiUserPin />
-    }
+    },
+    {
+      key:'search',
+      value:'搜索',
+      to:'',
+      icon: <RiSearchFill />
+   },
 ]
 
 function Header() {
@@ -51,6 +52,7 @@ function Header() {
   const router = useRouter()
   const theme= useContext(themeContext)
   const setTheme = useContext(setThemeContext)
+  const [open,setOpen] = useState(false)
   useEffect(() => {
     window.onscroll = throttle(() => {
       const y = document.documentElement.scrollTop
@@ -72,7 +74,13 @@ function Header() {
   }
   function handleSkip(to) {
     setNavOffset('max-md:translate-x-full')
-    router.push(to)
+    if(to)
+      router.push(to)
+    else
+      setOpen(true)
+  }
+  async function handleOk() {
+
   }
   return (
     <nav className={`fixed dark:bg-neutral-700 inset-x-0 top-0 transition-all duration-500 bg-slate-200 ease-in z-50 `+isUp}>
@@ -87,6 +95,15 @@ function Header() {
       <BsMoonStarsFill className={`absolute text-2xl dark:text-slate-200 text-neutral-700 right-7 cursor-pointer ${theme==='dark'?'hidden':''}`} onClick={toggleTheme}/>
       <BsCloudSunFill className={`absolute text-2xl dark:text-slate-200 text-neutral-700 right-7 cursor-pointer ${theme!=='dark'?'hidden':''}`}  onClick={toggleTheme}/>
     </div>
+    <Modal
+        title="搜索文章"
+        open={open}
+        onOk={handleOk}
+        onCancel={() => setOpen(false)}
+        footer=''
+      >
+        <p>123</p>
+      </Modal>
   </nav>
   )
 }

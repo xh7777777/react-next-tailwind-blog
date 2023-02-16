@@ -27,9 +27,6 @@ export const getTagAPI = () => {
 export const getArticleTableAPI = (pageIndex,pageSize) => {
     return request({
         url: `/article/table?pageIndex=${pageIndex}&pageSize=${pageSize}`,
-        data: {
-            
-        }
     })
 }
 

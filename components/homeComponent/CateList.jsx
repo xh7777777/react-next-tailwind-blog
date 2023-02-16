@@ -10,7 +10,7 @@ function CateList({cates}) {
         </h2>
         <ul className='flex flex-col gap-3 textc'>
         {cates.map(item => {
-            return <Link href={'/post/'+item.cate_name} key={item.cate_id} className='flex justify-between cursor-pointer hover:text-orange-600 transition-colors duration-150'>
+            return <Link href={'/post/category/'+item.cate_name} key={item.cate_id} className='flex justify-between cursor-pointer hover:text-orange-600 transition-colors duration-150'>
                 <span>{item.cate_name}</span>
                 <span>{item.total}</span>
             </Link>
