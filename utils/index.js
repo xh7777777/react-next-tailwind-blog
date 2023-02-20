@@ -31,3 +31,8 @@ export function throttle (func, wait, options) {
   
     return throttled
   }
+
+  export function randomArr(arr) {
+    if(!Array.isArray(arr)) return 'error'
+    return arr[Math.floor(Math.random()*arr.length)]
+  }

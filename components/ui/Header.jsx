@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import {AiFillHome} from "react-icons/ai"
 import {RiArticleFill} from 'react-icons/ri'
 import {TbTimeline} from 'react-icons/tb'
-import {BiUserPin} from 'react-icons/bi'
+import {BiUserPin,BiSearchAlt2} from 'react-icons/bi'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {BsMoonStarsFill,BsCloudSunFill} from 'react-icons/bs'
 import {RiSearchFill} from 'react-icons/ri'
@@ -37,12 +37,12 @@ const navItem = [
         to:'/about',
         icon: <BiUserPin />
     },
-    {
-      key:'search',
-      value:'搜索',
-      to:'',
-      icon: <RiSearchFill />
-   },
+  //   {
+  //     key:'search',
+  //     value:'搜索',
+  //     to:'',
+  //     icon: <RiSearchFill />
+  //  },
 ]
 
 function Header() {
@@ -50,6 +50,7 @@ function Header() {
   const [isUp,setIsUp] = useState('')
   const [scrollY, setScrollY] = useState(0)
   const router = useRouter()
+  const searchRef = useRef()
   const theme= useContext(themeContext)
   const setTheme = useContext(setThemeContext)
   const [open,setOpen] = useState(false)
@@ -64,6 +65,9 @@ function Header() {
       setScrollY(y)
     }, 300)
   })
+  function handleSearch() {
+    
+  }
   function toggleTheme() {
     if(theme === 'dark') setTheme('')
     else setTheme('dark')
@@ -95,15 +99,16 @@ function Header() {
       <BsMoonStarsFill className={`absolute text-2xl dark:text-slate-200 text-neutral-700 right-7 cursor-pointer ${theme==='dark'?'hidden':''}`} onClick={toggleTheme}/>
       <BsCloudSunFill className={`absolute text-2xl dark:text-slate-200 text-neutral-700 right-7 cursor-pointer ${theme!=='dark'?'hidden':''}`}  onClick={toggleTheme}/>
     </div>
-    <Modal
+    {/* <Modal
         title="搜索文章"
         open={open}
         onOk={handleOk}
         onCancel={() => setOpen(false)}
         footer=''
       >
-        <p>123</p>
-      </Modal>
+        <input type="search" className=' px-4 w-72 h-10 rounded-md shadow-lg outline-orange-600' ref={searchRef} placeholder='搜索文章'/>
+        <BiSearchAlt2 className='absolute left-56 text-2xl' onClick={handleSearch}/>
+      </Modal> */}
   </nav>
   )
 }

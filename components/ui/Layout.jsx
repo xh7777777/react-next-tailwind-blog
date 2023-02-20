@@ -4,7 +4,6 @@ import Header from './Header'
 import Footer from './Footer'
 import MainCoverPic from './MainCoverPic'
 import OtherCoverPic from './OtherCoverPic'
-
 function Layout({children}) {
   const router = useRouter()
   return (

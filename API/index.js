@@ -24,9 +24,17 @@ export const getTagAPI = () => {
     })
 }
 
-export const getArticleTableAPI = (pageIndex,pageSize) => {
+export const getArticleTableAPI = ({pageIndex,pageSize,category_name = null, tag_name=null, searchText = null}) => {
+    let url = `/article/table?pageIndex=${pageIndex}&pageSize=${pageSize}`
+    if(category_name) {
+        url += `&category_name=${category_name}`
+    } else if(tag_name) {
+        url += `&tag_name=${tag_name}`
+    } else if(searchText) {
+        url += `&searchText=${searchText}`
+    }
     return request({
-        url: `/article/table?pageIndex=${pageIndex}&pageSize=${pageSize}`,
+        url,
     })
 }
 
@@ -36,8 +44,8 @@ export const getArticleDetailAPI = (id) => {
     })
 }
 
-export const getPicAPi = (url) => {
+export const getCoverAPI = () => {
     return request({
-        url
+        url: '/about/main'
     })
 }

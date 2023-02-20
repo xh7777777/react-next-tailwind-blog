@@ -4,7 +4,7 @@ import MdRender from '@/components/postComponents/MdRender';
 import PostNav from '@/components/postComponents/postNav';
 function PostDetailPage({detail}) {
   return (
-    <div className='container lg:px-40 md:px-20'>
+          <div className='container lg:px-40 md:px-20'>
     <h1 className='text-4xl my-10 textc text-center'>
       {detail.title}
     </h1>
@@ -20,6 +20,7 @@ function PostDetailPage({detail}) {
       </div>
     </div>
   </div>
+
   )
 }
 
