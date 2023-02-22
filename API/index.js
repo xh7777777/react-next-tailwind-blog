@@ -49,3 +49,35 @@ export const getCoverAPI = () => {
         url: '/about/main'
     })
 }
+
+export const getCommentAPI = (id) => {
+    return request({
+        url: `/comment/${id}`
+    })
+}
+
+export const createCommentAPI = ({nickname,email,content,art_id}) => {
+    return request({
+        url: '/comment',
+        method:'post',
+        data: {
+            nickname,
+            email,
+            content,
+            art_id
+        }
+    })
+}
+
+export const createReplyAPI = ({nickname,email,content,comment_id}) => {
+    return request({
+        url: '/comment/reply',
+        method:'post',
+        data: {
+            nickname,
+            email,
+            content,
+            art_id:comment_id+''
+        }
+    })
+}

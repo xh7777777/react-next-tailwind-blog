@@ -1,8 +1,9 @@
 import React from 'react'
 import { Timeline } from 'antd'
+import MyHead from '@/components/ui/MyHead'
 function TimeLinePage({logger}) {
   return (
-          <div > 
+      <div > 
         <Timeline className='textc text-3xl pt-20 bgc transition-all duration-500' mode='alternate' items={logger.map(item => {
           return {label:item.time, children:item.content}
         }).reverse()}/>

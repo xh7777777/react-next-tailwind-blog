@@ -8,10 +8,12 @@ import { useRouter } from 'next/router'
 import { getArticleTableAPI } from '@/API'
 import { useRequest } from 'ahooks'
 import { Spin } from 'antd'
+import MyHead from '@/components/ui/MyHead'
 function HomePage({cates,tags}) {
   const {data,loading} = useRequest(() => {return getArticleTableAPI({pageIndex:1,pageSize:5})})
   const router = useRouter()
   return (
+    <>
       <div className='w-full container flex p-8'>
         <div className=' basis-3/4 flex-grow flex flex-col gap-8'>
           {data?data.data.data.data?.map(item =>  <PostCard key={item.art_id} post={item}/>): <Spin/>}
@@ -25,6 +27,7 @@ function HomePage({cates,tags}) {
           <TagCloud tags={tags}/>
         </div>
       </div>
+    </>
   )
 }
 

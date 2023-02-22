@@ -4,20 +4,23 @@
 @import "markdown-navbar/dist/navbar.css";
 @layer base {
   h1 {
-    @apply text-2xl font-bold;
+    @apply text-3xl font-bold;
   }
   h2 {
-    @apply text-xl font-bold;
+    @apply text-2xl font-bold;
   }
   h3 {
-    @apply text-lg font-bold;
+    @apply text-xl font-bold;
   }
   h4 {
-    @apply text-base font-bold;
+    @apply text-lg font-bold;
   }
 }
 
 @layer components {
+  .btn-orange {
+    @apply bg-orange-500 hover:bg-orange-700 dark:text-slate-200 text-neutral-700 font-bold px-4 rounded; 
+  }
   .btn-blue {
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
   }

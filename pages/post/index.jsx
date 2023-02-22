@@ -6,6 +6,7 @@ import { Spin } from 'antd'
 import PostCard from '@/components/homeComponent/PostCard'
 import { usePagination } from 'ahooks'
 import { useRouter } from 'next/router'
+import MyHead from '@/components/ui/MyHead'
 async function ArticleInfo(params) {
     const {data:res} = await getArticleTableAPI({pageIndex:params.current,pageSize:params.pageSize});
     return {
