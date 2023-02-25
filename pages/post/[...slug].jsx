@@ -6,6 +6,7 @@ import { Spin } from 'antd'
 import PostCard from '@/components/homeComponent/PostCard'
 import { usePagination } from 'ahooks'
 import { useRouter } from 'next/router'
+import MyHead from '@/components/ui/MyHead'
 async function ArticleInfo(params,path) {
    const obj = {
     pageIndex:params.current,
@@ -37,6 +38,7 @@ function PostFilterPage() {
   const { data, loading, pagination } = usePagination((params) => getArticle(params, router.query.slug), {defaultPageSize:5});
   return (
        <div className='container lg:px-60 md:px-20'>
+        <MyHead />
       <h1 className='text-5xl my-10 textc'>
         查询结果
       </h1>

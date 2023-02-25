@@ -5,7 +5,7 @@ const MyHead = (props) => {
   const defaultHead = {
     keywords: 'xh777,web前端,nginx,linux,nodejs,vue,react,next-js,react-hooks',
     article_des: 'xh777的个人博客，一个有内涵的web前端网站，专注react/node-js/前端技术',
-    article_title: "xh777个人",
+    article_title: "xh777部落格",
   }
   const head = props.info || defaultHead
   return (
@@ -19,7 +19,7 @@ const MyHead = (props) => {
       <meta name="keywords" content={head.keywords}/>
       <meta name="Description" content={head.article_des}/>
       <meta name="author" content="AlanGrady"/>
-      <link rel='shortcut icon' type='image/x-icon' href='image-base-url/blog/common/favicon.ico' />
+      <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
       <meta name="sogou_site_verification" content="RSa1MBtgZI"/>
       <title key="viewport">{head.article_title}</title>
     </Head>

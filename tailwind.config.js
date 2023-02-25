@@ -69,6 +69,14 @@ module.exports = {
             '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
             '--tw-prose-invert-th-borders': theme('colors.orange[500]'),
             '--tw-prose-invert-td-borders': theme('colors.orange[500]'),
+            p: {
+              textIndent:'2rem'
+            },
+            li: {
+              p: {
+                textIndent:0
+              }
+            } ,
           },
         },
       }),

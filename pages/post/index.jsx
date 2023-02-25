@@ -34,6 +34,7 @@ function PostPage() {
   }
   return (
         <div className='container lg:px-60 md:px-20'>
+          <MyHead />
       <h1 className='text-5xl my-10 textc'>
         全部文章
       </h1>

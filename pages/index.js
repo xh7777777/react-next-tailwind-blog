@@ -14,10 +14,11 @@ function HomePage({cates,tags}) {
   const router = useRouter()
   return (
     <>
+    <MyHead></MyHead>
       <div className='w-full container flex p-8'>
         <div className=' basis-3/4 flex-grow flex flex-col gap-8'>
           {data?data.data.data.data?.map(item =>  <PostCard key={item.art_id} post={item}/>): <Spin/>}
-          <div className=' self-end md:text-xl hover:text-orange-500 dark:text-orange-500 cursor-pointer pr-20 flex items-center' onClick={() => router.push('/post')}>
+          <div className=' self-end md:text-xl hover:text-orange-700 text-orange-500 cursor-pointer pr-20 flex items-center transition-colors duration-300' onClick={() => router.push('/post')}>
             查看更多<BsArrowRight/>
           </div>
         </div>
@@ -38,6 +39,7 @@ export async function getStaticProps() {
   const cateData = await cates.json()
   const tags = await fetch('http://127.0.0.1:3000/tag')
   const tagsData = await tags.json()
+
   return {
     props: {
       cates:cateData.data,

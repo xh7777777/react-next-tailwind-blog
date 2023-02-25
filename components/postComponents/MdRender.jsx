@@ -18,7 +18,7 @@ export default function MdRender({ content }) {
               {...props}
             />
           ) : (
-            <code className='whitespace-normal' {...props}>
+            <code className='whitespace-pre-line bg-[#F5F2F0] text-xl' {...props}>
               {children}
             </code>
           )

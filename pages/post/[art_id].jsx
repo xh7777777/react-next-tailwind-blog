@@ -6,6 +6,7 @@ import CommentForm from '@/components/postComponents/CommentForm';
 import CommentList from '@/components/postComponents/CommentList';
 import { useRequest } from 'ahooks';
 import { Spin } from 'antd';
+import MyHead from '@/components/ui/MyHead';
 function PostDetailPage({detail,id}) {
   const [fresh,setFresh] = useState(false)
   const {data,loading} = useRequest(() => {
@@ -13,6 +14,7 @@ function PostDetailPage({detail,id}) {
   }, {refreshDeps:[fresh]})
   return (
     <div className='container lg:px-40 md:px-20'>
+      <MyHead />
     <h1 className='text-4xl my-10 textc text-center'>
       {detail.title}
     </h1>
@@ -46,7 +48,7 @@ export async function getServerSideProps(context) {
   const data = await res.json();
   return {
     props:{
-      detail:data.data[0],
+      detail:data?.data[0],
       id
     }
   }

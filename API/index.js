@@ -69,7 +69,7 @@ export const createCommentAPI = ({nickname,email,content,art_id}) => {
     })
 }
 
-export const createReplyAPI = ({nickname,email,content,comment_id}) => {
+export const createReplyAPI = ({nickname,email,content,comment_id,reply_name}) => {
     return request({
         url: '/comment/reply',
         method:'post',
